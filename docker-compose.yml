@@ -1,0 +1,30 @@
+# ============================================================
+# TaxIQ — Docker Compose (Development)
+#
+# Usage:
+#   docker compose up -d          # Start Postgres
+#   docker compose down           # Stop
+#   docker compose down -v        # Stop + delete data volume
+# ============================================================
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: taxiq-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: taxiq
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d taxiq"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pgdata:
