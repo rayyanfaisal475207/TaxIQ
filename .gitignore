@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables — NEVER commit these
+.env
+
+# ChromaDB data (large binary files)
+data/chroma_db/
+
+# Session memory files
+data/memory/
+
+# Datasets
+data/documents/
+data/raw/
+
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Archived one-off scripts, superseded planning docs, and scratch output.
+# Kept locally for reference — safe to delete once confirmed unneeded.
+archive/
+
+# Generated documents (PDF/XLSX/DOCX produced by the AI at runtime)
+data/generated/
+
+# Ingestion checkpoints and pipeline logs
+ingestion_state.json
+data/*.db
+data/*.db.archived
+
+# Frontend build output
+frontend/dist/
+admin-frontend/dist/
+node_modules/
